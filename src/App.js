@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Films from "./pages/Films";
+import Musiques from "./pages/Musiques";
+import Header from "./header/Header";
+import NewItem from "./pages/NewItem";
+import UpdateItem from "./pages/UpdateItem";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <h1>Bienvenue au GRETA</h1>
+      <Router>
+      <Header />
+        <Route path="/" exact>
+          <Musiques />
+        </Route>
+        <Route path="/musiques" exact>
+          <Musiques />
+        </Route>
+        <Route path="/films" exact>
+          <Films />
+        </Route>
+        <Route path="/musique/new" exact>
+          <NewItem route="musiques" />
+        </Route>
+        <Route path="/film/new" exact>
+          <NewItem route="films" />
+        </Route>
+        <Route path="/update" exact>
+          <UpdateItem />
+        </Route>
+      </Router>
     </div>
   );
 }
