@@ -4,6 +4,7 @@ import "./Card-list.css"
 
 
 const CardList = (props) => {
+  console.log(props.oeuvres)
   return (
     <div className='card-list' >
         {props.oeuvres.map(oeuvreItem => (
